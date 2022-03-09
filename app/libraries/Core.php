@@ -16,14 +16,14 @@ class Core {
 
         //voir dans controller et met la premiere lettre de  la premieère valeur en majusule
 
-        if(file_exists('../app/controllers/' .ucwords($url[0]). '.php'));
+        if(file_exists('../app/controllers/'.ucwords($url[0]). '.php')){
 
-        //if exists, set as controller
+            //if exists, set as controller
+            $this->currentController = ucwords($url[0]);
 
-        $this->currentController = ucwords($url[0]);
-
-        //ne plus definir l'index 0
-        unset($url[0]);
+            //ne plus definir l'index 0
+            unset($url[0]);
+        }
 
         //require the controller
 

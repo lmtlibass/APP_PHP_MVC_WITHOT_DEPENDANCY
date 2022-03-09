@@ -10,7 +10,7 @@
 
     public function model($model){
         //require les models files
-        require_once '../app/models' . $model . '.php';
+        require_once '../app/models/' . $model . '.php';
 
         //instancier les mdoel
 
@@ -22,7 +22,7 @@
     public function view($view, $data = []){
         //verifier la vue
         if(file_exists('../app/views/'. $view . '.php')){
-            require_once '../app/views' .$view . '.php';
+            require_once '../app/views/' .$view . '.php';
 
         }else {
             //si la vue n'existe pas ..
