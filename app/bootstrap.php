@@ -1,9 +1,9 @@
 <?php
-    //recharger le fichier config
 
     require_once 'config/config.php';
-
-    //recharger les librairies
+    require_once 'helpers/url_helper.php';
+    require_once 'helpers/session_helper.php';
+ 
     
     //require_once 'libraries/core.php';
     //require_once 'libraries/controller.php';
@@ -13,4 +13,5 @@
 
     spl_autoload_register(function($className){
         require_once 'libraries/'. $className . '.php';
+        
     });

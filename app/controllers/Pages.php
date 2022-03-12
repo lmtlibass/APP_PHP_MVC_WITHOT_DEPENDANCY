@@ -3,13 +3,14 @@
 class Pages extends Controller{
 
     public function __construct(){
-        $this->postModel = $this->model('Post');
+        
     }
     public function index(){
-        $this->view('index');
+        $data = [
+            'title' => 'Bienvenu',
+        ];
+        $this->view('/index', $data);
     }
 
-    public function Apropos($id){
-            echo $id;
-    }
+   
 }

@@ -12,7 +12,7 @@
      private $host  = DB_HOST;
      private $user  = DB_USER;
      private $pass  = DB_PASS;
-     private $naame = DB_NAME;
+     private $dbname = DB_NAME;
 
      private $dbh; //gestion de la connexion
      private $stmt; //requtes
@@ -20,7 +20,7 @@
 
      public function __construct(){
          // set DSN 
-         $dsn = 'mysql:host=' . $this->host. ';dbname' . $this->dbname;
+         $dsn = 'mysql:host='. $this->host. ';dbname=' . $this->dbname;
          $option = array(
              PDO::ATTR_PERSISTENT => true,
              PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -29,7 +29,7 @@
          //creer un einstance de PDO
 
          try{
-             $this->dbs = new PDO($dsn, $this->user, $this->pass, $option);
+             $this->dbh = new PDO($dsn, $this->user, $this->pass, $option);
          }catch(PDOException $e){
              $this->error = $e->getMessage();
              echo $this->error;
@@ -43,9 +43,9 @@
 
      //Bind Value
 
-     public function bind($param, $values, $type = null){
+     public function bind($param, $value, $type = null){
          if(is_null($type)){
-              switch (truie) {
+              switch (true) {
                     case is_int($value):
                         $type = PDO::PARAM_INT;
                         break;
@@ -73,7 +73,7 @@
 
      public function resultSet(){
          $this->execute();
-         return$this->stmt->fetchAll(PDO::FETCH_OBJ);
+         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
      }
 
      //recuperer une seule enregistrement
